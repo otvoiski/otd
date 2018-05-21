@@ -6,10 +6,10 @@
 
 <div class="row">
   <div class="col d-flex justify-content-start">
-    <h3 class="text-dark font-weight-light">Janeiro - 2018}</h3>
+    <h3 class="text-dark font-weight-light">Janeiro - 2018</h3>
   </div>
   <div class="col d-flex justify-content-end">
-    <button class="btn btn-primary" type="button" name="button">Cadastrar</button>
+    <a class="btn btn-info" href="cadastrar/debito" name="Cadastrar">Cadastrar</a>
   </div>
 </div>
 
