@@ -35,7 +35,7 @@ Route::get('/cadastrar/ano/iniciar', function () {
 // Pags
 Route::get('/{ano}', function () {
     return view('pags/ano');
-});
+})->where(['ano' => '[0-9]+[0-9]+[0-9]+[0-9]+']);
 Route::get('/{ano}/{mes}', function ($ano, $mes) {
   if(true){ //2018
     if(in_array($mes, ["jar", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"]))
@@ -43,4 +43,6 @@ Route::get('/{ano}/{mes}', function ($ano, $mes) {
     else
       return view('err/404');
   } else return view('err/404');
-});
+})->where(['ano' => '[0-9]+[0-9]+[0-9]+[0-9]+']);
+
+Route::resource('products', 'ProductController')->middleware('auth');
