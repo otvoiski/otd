@@ -10,12 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('pags/home');
-});
-Route::resource('Ano', 'Ano');
-
+Route::get('/','AnoController@index');
 
 // Cadastrar
 Route::get('cadastrar/ano', function () {
@@ -23,7 +18,7 @@ Route::get('cadastrar/ano', function () {
 });
 Route::get('{ano}/cadastrar/debito', function ($ano) {
     if($ano == "2018")
-        return view('cads/cadDeb', ['ano' => '2018']);// <- deu erro aki
+        return view('cads/cadDeb', ['ano' => '2018']);
     else return view('err/404');
 })->where(['ano' => '[0-9]+[0-9]+[0-9]+[0-9]+']);
 
@@ -45,5 +40,3 @@ Route::get('/{ano}/{mes}', function ($ano, $mes) {
       return view('err/404');
   } else return view('err/404');
 })->where(['ano' => '[0-9]+[0-9]+[0-9]+[0-9]+']);
-
-Route::resource('products', 'ProductController')->middleware('auth');
