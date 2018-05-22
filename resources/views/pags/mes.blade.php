@@ -25,10 +25,10 @@
   <tbody>
     @forelse($debitos as $debito)
         <tr>
-          <td>Mercado</td>
-          <td>R$ 756,00</td>
+          <td>{{ $debito->descricao }}</td>
+          <td>{{ $debito->valor }}</td>
           <td>
-              <a href="{{url("")}}/{{$ano}}/remover/debito/">
+              <a href="{{url("")}}/{{   $debito->ano    }}/remover/debito/{{   $debito->id    }}">
                   <img src="{{url("")}}/img/remove.png" alt="Remover" title="Remover" class="img-rounded center-block">
               </a>
           </td>

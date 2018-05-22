@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('pags/home');
 });
+Route::resource('Ano', 'Ano');
 
 
 // Cadastrar

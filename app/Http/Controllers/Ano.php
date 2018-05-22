@@ -24,7 +24,7 @@ class Ano extends Controller
      */
     public function create()
     {
-        //
+        return view('Ano.create');
     }
 
     /**
@@ -80,6 +80,9 @@ class Ano extends Controller
      */
     public function destroy(Ano $ano)
     {
-        //
+        $a = Product::findOrFail($ano);
+        $a->delete();
+        return redirect()->route('Ano.index')->with('alert-success','Product hasbeen deleted!');
+
     }
 }

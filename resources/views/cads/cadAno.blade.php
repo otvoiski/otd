@@ -3,9 +3,9 @@
 @section('title', 'Inicio')
 
 @section('content')
-<form action="/cadastrar/ano" method="post">
+<form action="/cadastrar/ano/create" method="post">
   <div class="input-group">
-    <input class="form-control" type="text" name="cadAno" value="" placeholder="Ano">
+    <input class="form-control" type="text" name="ano" value="" placeholder="Ano">
     <div class="input-group-append">
       <button type="submit" class="btn btn-outline-primary">Iniciar</button>
     </div>
