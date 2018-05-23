@@ -3,7 +3,7 @@
 @section('title', 'Inicio')
 
 @section('content')
-<form action="/cadastrar/ano/create" method="post">
+<form action="/cadastrar/ano" method="post">
   <div class="input-group">
     <input class="form-control" type="text" name="ano" value="" placeholder="Ano">
     <div class="input-group-append">
