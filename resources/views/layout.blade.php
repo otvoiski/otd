@@ -36,6 +36,7 @@
         <!-- container -->
         <div class="container">
           <hr>
+            {{--Adicionar um path na nova versão--}}
             @yield('content')
           <hr>
         </div>
