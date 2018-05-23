@@ -3,7 +3,20 @@
 @section('title', 'Inicio')
 
 @section('content')
-
+{{--Alerta--}}
+@if(   $err    )
+    @component('alert')
+        @if($err == 1)
+            @section('class','alert-success')
+            <b>Sucesso</b> ao inserir o debito
+        @endif
+        @if($err == 2)
+              @section('class','alert-danger')
+            <b>Falha</b> ao inserir o debito
+        @endif
+    @endcomponent
+@endif
+{{--Body--}}
 <div class="row">
   <div class="col d-flex justify-content-start">
     <h3 class="text-dark font-weight-light">{{$mes}} - {{$ano}}</h3>

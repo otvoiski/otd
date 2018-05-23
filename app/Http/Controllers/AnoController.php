@@ -9,24 +9,28 @@ class AnoController extends Controller
     public function index(){
         $dados =
             [
-                'err' => false,
+                'err' => 0,
                 'anos' => Ano::all()
             ];
 
         return view('pags/home')->with($dados);
     }
 
-    public function store(AnoRequest $request){
-//        $ano = new Ano;
-//        $ano->ano   = $request->ano;
-//
-//
-//        if($ano->save()){
-//            $anos = Ano::all();
-//            return view('pags/home',['anos' => $anos, 'err' => true, 'class' => 'alert-success']);
-//        } else {
-//            return view('pags/home',['anos' => null, 'err' => true, 'class' => 'alert-danger']);
-//        }
+    public function store(Request $request){
+        $ano = new Ano;
+        $ano->ano   = $request->ano;
+
+
+        if($ano->save()){
+//      Se cadastrar o ano, começa a cadastra os meses
+
+
+
+            $anos = Ano::all();
+            return view('pags/home')->with(['anos' => $anos, 'err' => 1]);
+        } else {
+            return view('pags/home')->with(['anos' => null, 'err' => 2]);
+        }
     }
 
     public function show(Ano $ano)

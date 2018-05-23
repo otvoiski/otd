@@ -4,10 +4,16 @@
 @section('title', 'Inicio')
 
 @section('content')
-    @if(   false    )
+    @if(   $err    )
         @component('alert')
-            @section('class','alert-success')
-            <strong>Holy guacamole!</strong> You should check in on some of those fields below
+            @if($err == 1)
+                @section('class','alert-success')
+                <b>Sucesso</b> ao inserir o ano
+            @endif
+            @if($err == 2)
+                @section('class','alert-danger')
+                <b>Falha</b> ao inserir o ano
+            @endif
         @endcomponent
     @endif
     @forelse($anos as $ano)

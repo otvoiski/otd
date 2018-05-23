@@ -33,9 +33,7 @@
         return view('cads/cadDeb'); //enviar alerta de positivade
     });
 
-    Route::get('/{ano}', function () {
-        return view('pags/ano');
-    })->where(['ano' => '[0-9]+[0-9]+[0-9]+[0-9]+']);
+    Route::get('/{ano}', 'MesController@index')->where(['ano' => '[0-9]+[0-9]+[0-9]+[0-9]+']);
 
     Route::get('/{ano}/{mes}', function ($ano, $mes) {
         if(true){ //2018
@@ -47,4 +45,4 @@
     })->where(['ano' => '[0-9]+[0-9]+[0-9]+[0-9]+']);
 
 /* Posts */
-    Route::post('cadastrar/ano', 'AnoController@create');        //Insere o ano ao banco via POST
+    Route::post('cadastrar/ano', 'AnoController@store');        //Insere o ano ao banco via POST
