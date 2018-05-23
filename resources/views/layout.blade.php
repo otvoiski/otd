@@ -43,6 +43,10 @@
         <div class="containers">
         <div class="text-center">
         <small>&copy; OTD 2018 - Todos os direitos reservados</small>
+            <br>
+        <small>Desenvolvido por <a href="https://github.com/otvoiski" target="_blank">Otávio Voiski</a></small>
+            <br>
+        <small><a href="https://github.com/O3M-Inc">O3M - Solutions</a></small>
         </div>
         </div>
         <!-- script -->

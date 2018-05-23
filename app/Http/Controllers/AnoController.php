@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Ano;
+use App\Mes;
 use Illuminate\Http\Request;
 
 class AnoController extends Controller
@@ -27,8 +28,10 @@ class AnoController extends Controller
 
 
         if($ano->save()){
-//      Se cadastrar o ano, começa a cadastra os meses
+//          Se cadastrar o ano, começa a cadastra os meses
+            $mes = new Mes;
 
+            $mes->mes('Janeiro','jar', $ano->ano);
 
 
             $anos = Ano::all();
@@ -36,20 +39,5 @@ class AnoController extends Controller
         } else {
             return view('pags/home')->with(['anos' => null, 'err' => 2]);
         }
-    }
-
-    public function show(Ano $ano)
-    {
-        //
-    }
-
-    public function destroy(Ano $ano)
-    {
-        //
-    }
-
-    public function update(Request $request, Ano $ano)
-    {
-        //
     }
 }
