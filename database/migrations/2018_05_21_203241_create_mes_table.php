@@ -17,7 +17,7 @@ class CreateMesTable extends Migration
             $table->increments('id');
             $table->string('mes',100);
             $table->string('apelido',3);
-            $table->decimal('total',8,2);
+            $table->decimal('total',8,2)->default(0);
             $table->integer('ano')->unsigned();
             $table->foreign('ano')->references('id')->on('anos')->onDelete('cascade');
             $table->timestamps();

@@ -16,6 +16,11 @@ class AnoController extends Controller
         return view('pags/home')->with($dados);
     }
 
+    public function create()
+    {
+        return view('cads/cadAno');
+    }
+
     public function store(Request $request){
         $ano = new Ano;
         $ano->ano   = $request->ano;

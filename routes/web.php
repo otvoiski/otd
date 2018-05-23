@@ -11,15 +11,20 @@
 |
 */
 
-/* Links */
-    // Default
-    Route::get('/','AnoController@index');
+/* Ano */
+    Route::get('/',             'AnoController@index');                                         // Default pag
+    Route::get('cadastrar/ano', 'AnoController@create');                                        // Cadastrar pag
+    Route::post('cadastrar/ano','AnoController@store');                                         // Store
+
+/* Mes */
+    Route::get('/{ano}', 'MesController@index')->where(['ano' => '[0-9]+[0-9]+[0-9]+[0-9]+']);  // Ano
 
 
-    // Cadastrar
-    Route::get('cadastrar/ano', function (){
-        return view('cads/cadAno');
-    });
+
+
+
+
+
 
 
     Route::get('{ano}/cadastrar/debito', function ($ano) {
@@ -33,8 +38,6 @@
         return view('cads/cadDeb'); //enviar alerta de positivade
     });
 
-    Route::get('/{ano}', 'MesController@index')->where(['ano' => '[0-9]+[0-9]+[0-9]+[0-9]+']);
-
     Route::get('/{ano}/{mes}', function ($ano, $mes) {
         if(true){ //2018
             if(in_array($mes, ["jar", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"]))
@@ -44,5 +47,3 @@
         } else return view('err/404');
     })->where(['ano' => '[0-9]+[0-9]+[0-9]+[0-9]+']);
 
-/* Posts */
-    Route::post('cadastrar/ano', 'AnoController@store');        //Insere o ano ao banco via POST

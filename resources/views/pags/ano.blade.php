@@ -1,11 +1,11 @@
 @extends('layout')
 
-@section('title', 'Plano de {{  $ano  }}')
+@section('title')Plano de {{  $ano  }}@endsection
 
 @section('content')
     @component('chart')
         @section('chart-valor')
-        [205.52, 159.61, 96.40, 15.10, 249.00, 0, 0, 0, 0, 0, 0, 0]
+             {{  '['.implode(',',$total).']'  }}
         @endsection
     @endcomponent
     <div class="row">
@@ -16,11 +16,11 @@
     <hr>
     @forelse($meses as $mes)
         @if($mes->update_at == null)
-            <div class="form-group"><a href="{{  URL::to('/$ano/$mes->apelido')  }}" class="btn btn-info col-12">$mes->mes</a></div>
+            <div class="form-group"><a href="{{  URL::to('/'.$ano.'/'.$mes->apelido) }}" class="btn btn-info col-12">{{ $mes->mes }}</a></div>
         @else
-            <div class="form-group"><a href="{{  URL::to('/$ano/$mes->apelido')  }}" class="btn btn btn-outline-info col-12">$mes->mes</a></div>
+            <div class="form-group"><a href="{{  URL::to('/'.$ano.'/'.$mes->apelido)  }}" class="btn btn btn-outline-info col-12">{{ $mes->mes }}</a></div>
         @endif
     @empty
-        <h3 class="text-center"> Mêses não foram cadastrados, favor contactar o administrador.</h3>
+        <h3 class="text-center"> Mêses não foram cadastrados, favor contatar o administrador.</h3>
     @endforelse
 @endsection
