@@ -21,6 +21,6 @@
             <div class="form-group"><a href="{{  URL::to('/'.$ano.'/'.$mes->apelido)  }}" class="btn btn btn-outline-info col-12">{{ $mes->mes }}</a></div>
         @endif
     @empty
-        <h3 class="text-center"> Mêses não foram cadastrados, favor contatar o administrador.</h3>
+        <h3 class="text-center"> Meses não foram cadastrados, favor contatar o administrador.</h3>
     @endforelse
 @endsection
