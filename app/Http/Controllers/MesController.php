@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class MesController extends Controller
 {
     public function index($ano){
-        if(Ano::Find($ano))
+        if(Ano::where('ano', '=', $ano)->firstOrFail())
             $dados =
                 [
                     'ano' => $ano,

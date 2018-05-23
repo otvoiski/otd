@@ -15,7 +15,7 @@
     </div>
     <hr>
     @forelse($meses as $mes)
-        @if($mes->update_at == null)
+        @if($mes->total != 0)
             <div class="form-group"><a href="{{  URL::to('/'.$ano.'/'.$mes->apelido) }}" class="btn btn-info col-12">{{ $mes->mes }}</a></div>
         @else
             <div class="form-group"><a href="{{  URL::to('/'.$ano.'/'.$mes->apelido)  }}" class="btn btn btn-outline-info col-12">{{ $mes->mes }}</a></div>

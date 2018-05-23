@@ -26,4 +26,18 @@ class Mes extends Model
 
         return $total;
     }
+
+    /**
+     * @param $nome Nome do Mes
+     * @param $apl  Apelido do Mes ex: jar,mar
+     * @param $ano  Id referente ao Ano
+     * @return bool Retorna true ou false
+     */
+    public static function insert($nome, $apl, $ano){
+        $mes = new Mes;
+        $mes->mes = $nome;
+        $mes->apelido = $apl;
+        $mes->ano = $ano;
+        return $mes->save();
+    }
 }
