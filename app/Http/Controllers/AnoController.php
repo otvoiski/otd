@@ -30,7 +30,7 @@ class AnoController extends Controller
         if($ano->save()){
 //          Se cadastrar o ano, começa a cadastra os meses
             $mes = new Mes;
-            $mes::insert('Janeiro','jar',$ano->id);
+            $mes::insert('Janeiro','jan',$ano->id);
             $mes::insert('Fevereiro','fev',$ano->id);
             $mes::insert('Março','mar',$ano->id);
             $mes::insert('Abril','abr',$ano->id);

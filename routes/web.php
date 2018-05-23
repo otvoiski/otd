@@ -13,30 +13,19 @@
 
 /* Ano */
     Route::get('/',             'AnoController@index');                                             // Default pag
-    Route::get('cadastrar/ano', 'AnoController@create');                                            // Cadastrar pag
-    Route::post('cadastrar/ano','AnoController@store');                                             // Store
+    Route::get('cadastrar/ano', 'AnoController@create');                                            // create pag
+    Route::post('cadastrar/ano','AnoController@store');                                             // Store db
 
 /* Mes */
-    Route::get('/{ano}', 'MesController@index')->where(['ano' => '[0-9]+[0-9]+[0-9]+[0-9]+']);      // Ano
-    Route::get('/{ano}/{mes}','MesController@show')->where(['ano' => '[0-9]+[0-9]+[0-9]+[0-9]+']);  // Meses
+    Route::get('/{ano}', 'MesController@index');                                                    // Ano pag
+    Route::get('/{ano}/{mes}','MesController@show');                                                // Meses pag
 
+/* Debito */
+    Route::get('/{ano}/{mes}','DebitoController@show');                                              // Show pag
+    Route::get('{ano}/{mes}/cadastrar/debito', 'DebitoController@create');                           // Create pag
+    Route::post('{ano}/{mes}/cadastrar/debito', 'DebitoController@store');                           // Store db
+    Route::post('{ano}/{mes}/remover/debito', 'DebitoController@delete');                            // Remover db
 
-
-
-
-
-
-
-    Route::get('{ano}/cadastrar/debito', function ($ano) {
-        if($ano == "2018")
-            return view('cads/cadDeb', ['ano' => '2018']);
-        else return view('err/404');
-    })->where(['ano' => '[0-9]+[0-9]+[0-9]+[0-9]+']);
-
-    // POST
-    Route::get('/cadastrar/ano/iniciar', function () {
-        return view('cads/cadDeb'); //enviar alerta de positivade
-    });
 
 
 

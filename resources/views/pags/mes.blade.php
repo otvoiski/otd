@@ -22,7 +22,7 @@
     <h3 class="text-dark font-weight-light">{{$mes->mes}} - {{$ano}}</h3>
   </div>
   <div class="col d-flex justify-content-end">
-    <a class="btn btn-info" href="{{url('/'.$ano."/cadastrar/debito")}}" name="Cadastrar">Cadastrar</a>
+    <a class="btn btn-info" href="{{url($ano."/".$mes->apelido."/cadastrar/debito")}}" name="Cadastrar">Cadastrar</a>
   </div>
 </div>
 
@@ -31,7 +31,7 @@
 
 @if($mes->total == 0)
     <div class="text-center">
-        <i>Clique em <a href="{{url("")}}/{{$ano}}cadastrar/debito"><b>cadastrar</b></a> para inserir um debito.</i>
+        <i>Clique em <a href="{{url($ano."/".$mes->apelido."/cadastrar/debito")}}"><b>cadastrar</b></a> para inserir um debito.</i>
     </div>
 @else
     <table class="table table-striped">
@@ -48,8 +48,8 @@
               <td>{{ $debito->descricao }}</td>
               <td>{{ $debito->valor }}</td>
               <td>
-                  <a href="{{url("")}}/{{   $debito->ano    }}/remover/debito/{{   $debito->id    }}">
-                      <img src="{{url("")}}/img/remove.png" alt="Remover" title="Remover" class="img-rounded center-block">
+                  <a href="{{url("/".$debito->ano."/".$mes."/remover/debito/".$debito->id)}}">
+                      <img src="{{url("/img/remove.png")}}" alt="Remover" title="Remover" class="img-rounded center-block">
                   </a>
               </td>
             </tr>
