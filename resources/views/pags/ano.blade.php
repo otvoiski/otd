@@ -2,6 +2,9 @@
 
 @section('title')Plano de {{  $ano  }}@endsection
 
+@section('path')
+    <a href="{{   URL::to($ano)   }}"> {{ $ano }}</a> /
+@endsection
 @section('content')
     @component('chart')
         @section('chart-valor')

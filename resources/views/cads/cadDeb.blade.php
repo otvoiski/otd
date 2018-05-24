@@ -1,7 +1,9 @@
 @extends('layout')
 
 @section('title', 'Cadastrar Debito')
-
+@section('path')
+  <a href="{{   URL::to($ano)   }}"> {{ $ano }}</a> / <a href="{{   URL::to($ano.'/'.$mes)   }}"> {{ $mes }}</a> / <a href="{{   URL::to($ano.'/'.$mes.'/cadastrar/debito')   }}"> {{ 'Cadastrar Debito' }}</a> /
+@endsection
 @section('content')
 <div class="col d-flex justify-content-start">
   <h3 class="text-dark font-weight-light">Cadastrar Debito - {{ $ano }}</h3>

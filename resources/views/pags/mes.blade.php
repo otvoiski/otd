@@ -1,7 +1,9 @@
 @extends('layout')
 
 @section('title', $mes->mes ." - ". $ano)
-
+@section('path')
+    <a href="{{   URL::to($ano)   }}"> {{ $ano }}</a> / <a href="{{   URL::to($ano.'/'.$mes->apelido)   }}"> {{ $mes->apelido }}</a> /
+@endsection
 @section('content')
     {{--Alerta--}}
 @if(isset($err))

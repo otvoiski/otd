@@ -1,7 +1,9 @@
 @extends('layout')
 
 @section('title', 'Cadastrar ano vigente')
-
+@section('path')
+  <a href="{{   URL::to('cadastrar/ano')   }}"> {{ 'Cadastrar Ano' }}</a> /
+@endsection
 @section('content')
 <form action="/cadastrar/ano" method="post">
   {{ csrf_field() }}
