@@ -1,20 +1,22 @@
 @extends('layout')
 
-@section('title', 'Inicio')
+@section('title', $mes->mes ." - ". $ano)
 
 @section('content')
-{{--Alerta--}}
-@if(   $err    )
-    @component('alert')
-        @if($err == 1)
+    {{--Alerta--}}
+@if(isset($err))
+    @if($err == 0)
+        @component('alert')
             @section('class','alert-success')
             <b>Sucesso</b> ao inserir o debito
-        @endif
-        @if($err == 2)
-              @section('class','alert-danger')
+        @endcomponent
+    @endif
+    @if($err == 1)
+        @component('alert')
+            @section('class','alert-danger')
             <b>Falha</b> ao inserir o debito
-        @endif
-    @endcomponent
+        @endcomponent
+    @endif
 @endif
 {{--Body--}}
 <div class="row">
@@ -22,16 +24,16 @@
     <h3 class="text-dark font-weight-light">{{$mes->mes}} - {{$ano}}</h3>
   </div>
   <div class="col d-flex justify-content-end">
-    <a class="btn btn-info" href="{{url($ano."/".$mes->apelido."/cadastrar/debito")}}" name="Cadastrar">Cadastrar</a>
+    <a class="btn btn-info" href="{{URL::to($ano."/".$mes->apelido."/cadastrar/debito")}}" name="Cadastrar">Cadastrar</a>
   </div>
 </div>
 
 <br>
 
 
-@if($mes->total == 0)
+@if($mes->debito == 0)
     <div class="text-center">
-        <i>Clique em <a href="{{url($ano."/".$mes->apelido."/cadastrar/debito")}}"><b>cadastrar</b></a> para inserir um debito.</i>
+        <i>Clique em <a href="{{URL::to($ano."/".$mes->apelido."/cadastrar/debito")}}"><b>cadastrar</b></a> para inserir um debito.</i>
     </div>
 @else
     <table class="table table-striped">
@@ -48,25 +50,29 @@
               <td>{{ $debito->descricao }}</td>
               <td>{{ $debito->valor }}</td>
               <td>
-                  <a href="{{url("/".$debito->ano."/".$mes."/remover/debito/".$debito->id)}}">
-                      <img src="{{url("/img/remove.png")}}" alt="Remover" title="Remover" class="img-rounded center-block">
+                  <a href="{{URL::to($ano."/".$mes->apelido."/remover/debito/".$debito->id)}}">
+                      <img src="{{URL::to("/img/remove.png")}}" alt="Remover" title="Remover" width="20" class="img-rounded center-block">
                   </a>
               </td>
             </tr>
         @endforeach
         <tr>
           <td class="text-dark font-weight-light text-right">Debito</td>
-          <td><h4 class="text-dark font-weight-light">R$ 951,00</h4></td>
+          <td><h4 class="text-dark font-weight-light">R$ {{ $mes->debito }}</h4></td>
           <th></th>
         </tr>
         <tr>
           <td class="text-dark font-weight-light text-right">Credito</td>
-          <td><h4 class="text-dark font-weight-light">R$ 1.200,00</h4></td>
+          <td><h4 class="text-dark font-weight-light ">R$ {{ $mes->credito }}</h4></td>
           <th></th>
         </tr>
         <tr>
           <td class="text-dark font-weight-light text-right">Total</td>
-          <td><h4 class="text-dark font-weight-light">R$ 249,00</h4></td>
+            @if( ($mes->credito - $mes->debito) < 0)
+                <td><h4 class="text-danger font-weight-light">R$ {{ $mes->credito - $mes->debito }}</h4></td>
+            @else
+                <td><h4 class="text-dark font-weight-light ">R$ {{ $mes->credito - $mes->debito }}</h4></td>
+            @endif
           <th></th>
         </tr>
       </tbody>

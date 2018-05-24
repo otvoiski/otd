@@ -1,3 +1,4 @@
+
 <div class="alert @yield('class') alert-dismissible fade show" role="alert">
 
     {{ $slot }}

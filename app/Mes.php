@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mes extends Model
 {
-    protected $fillable = ['mes','apelido','ano'];
-    protected $guarded = ['id','total','created_at', 'update_at'];
+    protected $fillable = ['mes','apelido','ano','credito'];
+    protected $guarded = ['id','debito','created_at', 'update_at'];
     protected $table = 'mes';
 
     /**
@@ -16,12 +16,12 @@ class Mes extends Model
      * @return Retorna o valor para o grafico, este sendo o total de valores do mes
      */
     public static function getTotalMes(){
-        $meses = DB::table('mes')->select('total')->get();
+        $meses = DB::table('mes')->select('debito')->get();
         $size = DB::table('mes')->count();
         $total = [0,0,0,0,0,0,0,0,0,0,0,0];
 
         for ($i = 0; $i < $size; $i++){
-            $total[$i] = $meses[$i]->total;
+            $total[$i] = $meses[$i]->debito;
         }
 
         return $total;
@@ -38,6 +38,13 @@ class Mes extends Model
         $mes->mes = $nome;
         $mes->apelido = $apl;
         $mes->ano = $ano;
+        return $mes->save();
+    }
+
+
+    public function calculaDebito($id){
+        $mes = Mes::find($id);
+        $mes->debito = Debito::where('mes','=',$mes->id)->sum('valor');
         return $mes->save();
     }
 }

@@ -1,9 +1,10 @@
 @extends('layout')
 
-@section('title', 'Inicio')
+@section('title', 'Cadastrar ano vigente')
 
 @section('content')
 <form action="/cadastrar/ano" method="post">
+  {{ csrf_field() }}
   <div class="input-group">
     <input class="form-control" type="text" name="ano" value="" placeholder="Ano">
     <div class="input-group-append">
