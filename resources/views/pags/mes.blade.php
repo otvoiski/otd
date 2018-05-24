@@ -66,7 +66,11 @@
         <tr>
           <td class="text-dark font-weight-light text-right">Credito</td>
           <td><h4 class="text-dark font-weight-light ">R$ {{ $mes->credito }}</h4></td>
-          <th></th>
+          <th>
+              <a href="{{URL::to($ano."/".$mes->apelido."/cadastrar/credito")}}">
+                 <img src="{{ URL::to('img/plus.png') }}"  class="img-rounded center-block" width="20" title="Adicionar Credito" alt="Adicionar Credito">
+              </a>
+          </th>
         </tr>
         <tr>
           <td class="text-dark font-weight-light text-right">Total</td>
