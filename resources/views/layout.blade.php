@@ -37,7 +37,7 @@
         <div class="container">
           <hr>
             <div class="text-left">
-                <small>Endereço: @yield('path')</small>
+                <small>Endereço: <a href="{{URL::to('/')}}">Inicio</a> / @yield('path')</small>
             </div>
             @yield('content')
           <hr>
