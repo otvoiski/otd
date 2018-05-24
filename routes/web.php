@@ -19,6 +19,7 @@
 /* Mes */
     Route::get('/{ano}',                            'MesController@index');
     Route::get('/{ano}/{mes}/cadastrar/credito',    'MesController@credito');
+    Route::post('/{ano}/{mes}/cadastrar/credito',   'MesController@store');
 
 /* Debito */
     Route::get('/{ano}/{mes}',                      'DebitoController@show');

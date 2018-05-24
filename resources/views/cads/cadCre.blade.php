@@ -9,14 +9,13 @@
   <h3 class="text-dark font-weight-light">Cadastrar Debito - {{ $ano }}</h3>
 </div>
 <br>
-<form action="{{URL::to($ano."/".$mes."/cadastrar/debito")}}" method="post">
+<form action="{{URL::to($ano."/".$mes."/cadastrar/credito")}}" method="post">
   {{ csrf_field() }}
   <div class="input-group">
     <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">{{ $mes }}</span>
+      <span class="input-group-text" id="basic-addon1">{{ $mesNome }}</span>
     </div>
-    <input class="form-control col-8" type="text" name="descricao" value="" placeholder="Descrição">
-    <input class="form-control col-4" type="text" name="valor" value="" placeholder="Valor">
+    <input class="form-control" type="text" name="credito" value="{{ $credito }}" placeholder="Valor">
   </div>
   <div  class="text-right text-dark">
     <small><i>Valor não pode ter vírgula  (,)</i></small>
