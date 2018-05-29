@@ -17,7 +17,7 @@
         @endcomponent
     @endif
     @forelse($anos as $ano)
-        <a href="/{{$ano->ano}}" class="btn btn-outline-info my-2 col-sm-12">{{$ano->ano}}</a>
+        <a href="{{ URL::to($ano->ano) }}" class="btn btn-outline-info my-2 col-sm-12">{{$ano->ano}}</a>
     @empty
         <h3 class="text-center text-dark font-weight-light">Bem vindo ao OTD, seu gerenciador de debitos!
             <br>
